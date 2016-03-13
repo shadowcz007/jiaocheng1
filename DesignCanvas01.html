@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Example</title>
+</head>
+<body>
+  <canvas id="canvas" width="600" height="300" style="border:1px gray dashed; ">Canvas not supported</canvas>  
+  
+  <script type="text/javascript">
+
+    var Mycanvas=document.getElementById('canvas');
+    var context=Mycanvas.getContext('2d');
+    
+    context.font="22pt Arial";
+    context.fillStyle="#339900";
+    context.strokeStyle="#663300";
+  //绘制文字
+    context.fillText('Landscape Design',Mycanvas.width/2-20,
+    	        						  Mycanvas.height/2+15);
+    context.strokeText('Landscape Design',Mycanvas.width/2-20,
+    	        						  Mycanvas.height/2+15);
+    context.font="8pt Arial";
+    context.fillStyle='#339900';
+    context.fillText('2016.03',Mycanvas.width/2-20 ,
+                            Mycanvas.height/2+30);
+   //绘制树冠
+    context.translate(240,220);
+    context.beginPath();
+    context.lineTo(-30,-50);
+    context.lineTo(-10,-80);
+    context.lineTo(-24,-80);
+    context.lineTo(-5,-110);
+    context.lineTo(-15,-110);
+    context.lineTo(0,-130);
+    context.lineTo(15,-110);
+    context.lineTo(5,-110);
+    context.lineTo(24,-80);
+    context.lineTo(10,-80);
+    context.lineTo(30,-50);
+    context.closePath();
+    //加宽线条
+    context.lineWidth=4;
+    //平滑路径的接合点,bevel,miter
+    context.lineJoin='round';
+    //将颜色改成棕色
+    context.strokeStyle='#663300';
+    context.stroke();
+    //将填充色设置为绿色并填充树冠
+    context.fillStyle='#339900';
+    context.fill();
+    //绘制树干
+    context.fillStyle='#663300';
+    context.fillRect(-5,-50,10,20);
+    //绘制水平线 
+    context.fillRect(-120,-30,420,2);   
+  </script>
+</body>
+</html>
